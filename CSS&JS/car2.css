@@ -1,0 +1,77 @@
+@import url(https://db.onlinewebfonts.com/c/55d433372d270829c51e2577a78ef12d?family=Monument+Extended+Bold);
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    overflow-x: hidden;
+  }
+  .abc {
+    width: 100px;
+    height: 100px;
+    animation: scroll 30s linear infinite;
+    padding-top: 10px;  
+    padding-bottom: 10px;
+  }
+  
+  .slide-track {
+    width: 100%;
+    display: flex;
+    gap: 3em;
+    overflow: hidden;
+    border-block: solid #fff;
+    writing-mode: horizontal-tb;
+  }
+  .slide-track3 {
+    width: 100%;
+    display: flex;
+    gap: 3em;
+    overflow: hidden;
+    border-block: solid #fff;
+    writing-mode: horizontal-tb;
+  }
+  .slide-track2 {
+    width: 100%;
+    display: flex;
+    gap: 3em;
+    overflow: hidden;
+    border-block: solid #fff;
+    writing-mode: horizontal-tb;
+  }
+  .slide-track2 .abc{
+    animation: scroll 30s linear infinite;
+    animation-direction: reverse;
+    
+  }
+  .slider {
+    margin-top: 65px;
+    /* background-color: whitesmoke; */
+    /* padding: 8em 2em; */
+    
+  }
+  .spacer{
+    width:100vw;
+    height:100vh;
+    background-color:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    text-transform: uppercase;
+    text-align:center;
+}
+
+  @keyframes scroll {
+    0% {transform: translateX(0);}
+    100% {transform: translatex(-1000%)}
+  }
+
+h1{
+  text-transform: uppercase;
+  color: transparent;
+  margin-top: -100px;
+  font-size: 5em;
+  font-family: "Monument Extended Bold";
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}

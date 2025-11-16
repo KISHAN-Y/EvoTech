@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
+@font-face {
+  font-family: "wild_worldbold";
+  src: url("https://assets.codepen.io/756881/wild_world-webfont.woff2") format("woff2"), url("https://assets.codepen.io/756881/wild_world-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* @link https://utopia.fyi/type/calculator?c=320,20,1.2,1140,24,1.25,1,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1140;
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+   (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+    (var(--fluid-max-width) - var(--fluid-min-width))
+  );
+}
+
+@media screen and (min-width: 1140px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+:root {
+  --f-0-min: 18;
+  --f-0-max: 20;
+  --step-0: calc(
+   ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
+    var(--fluid-bp)
+  );
+  --f-1-min: 20;
+  --f-1-max: 24;
+  --step-1: calc(
+   ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
+    var(--fluid-bp)
+  );
+}
+
+* {
+  box-sizing: border-box;
+  /* cursor: none; */
+  user-select: none;
+}
+
+body {
+  scroll-behavior: smooth;
+  background-color: #111;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  overflow-x: hidden;
+  font-size: var(--step-0);
+}
+
+section {
+  min-height: 70vh;
+}
+
+p {
+  line-height: 1.35;
+}
+
+#content {
+  padding: 0 0.75rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+
+.title {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 50vh;
+}
+
+#content {
+  overflow: visible;
+  width: 100%;
+}
+
+.heading {
+  position: absolute;
+  top: 60vh;
+  margin-top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+.heading p {
+  font-family: "wild_worldbold";
+  font-size: 15.5vw;
+  font-size: clamp(12px, 15.5vw, 250px);
+  text-align: center;
+  line-height: 0.67;
+  margin: 0;
+  text-align: center;
+  color: #111;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: white;
+  z-index: -10;
+}
+
+.text-container {
+  position: relative;
+}
+
+.text-container p {
+  position: absolute;
+  top: 5vh;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  color: transparent;
+}
+
+.text-container p:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  color: white;
+  
+}
+
+.stagger {
+  font-size: 8vw;
+}
+
+.content {
+  border-left: solid 1px white;
+  padding: 0.5rem 2rem;
+}
+
+.staggered {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 4rem;
+}
+.staggered h3 {
+  font-family: "wild_worldbold";
+  font-size: clamp(16px, 6vw, 80px);
+  letter-spacing: 0.03em;
+}
+.staggered_text {
+  flex: 1 1 300px;
+}
+.staggered_demo {
+  flex: 1 1 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spacer {
+  height: 10vh;
+}
+
+
+
+a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .45s;
+}
+
+a:hover, a:focus {
+    background-size: 100% 2px;
+}
+
+.cursor {
+  position: absolute;
+  height: var(--circle);
+  width: var(--circle);
+  transform:scale(1);
+  border-radius: 50%;
+  transition: all 0.35s, top 0s, left 0s;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 999;
+}
+
+.cursor:first-child {
+  background-color: #fff;
+  --circle:9px
+}
+.cursor.second-cursor {
+  background-color: none;
+  border:1.5px solid #fff;
+  --circle:68px;
+  z-index: 999;
+}
+
+.cursor:first-child.big{
+  --circle:140px;
+}
+.second-cursor.big { 
+  --circle:0px;
+  border-width:0px;
+}

@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'MonumentExtended'; /*a name to be used later*/
+  src: url('./FONTS/MonumentExtended-FreeForPersonalUse/MonumentExtended-Ultrabold.otf'); /*URL to font*/
+}
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black; /* Set a background color */
+    overflow: hidden;
+}
+.img360 {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.img360 img {
+    width: 100%;
+    height: 100%;
+     /* Maintain image aspect ratio and fit inside */
+}
+.img360{
+    filter: blur(0.5px); /* Adjust the blur value as needed */
+}
+#scroll-div{
+    position: absolute;
+    /* top:20%; */
+    left: 45%;
+    width: 100%;
+    /* height: 100px; */
+    white-space: nowrap;
+    overflow-x:auto;
+    overflow-y:hidden;
+    z-index: 99;
+    transform: rotate(90deg);
+  }
+  #scroll-div::-webkit-scrollbar{
+    display:none;
+  }
+  #scroll-div h1{
+    display: inline-block;
+    font-size: 110px;
+    text-transform:uppercase;
+    margin-right:30px;
+    letter-spacing:4px;
+    font-family: "MonumentExtended";
+    animation-name: scroll;
+    animation-timing-function: linear;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  #scroll-div2{
+    position: absolute;
+    /* top:40%; */
+    right: 45%;
+    width: 100%;
+    /* height: 100px; */
+    white-space: nowrap;
+    overflow-x:auto;
+    overflow-y:hidden;
+    z-index: 100;
+    transform: rotate(90deg);
+  }
+  #scroll-div2::-webkit-scrollbar{
+    display:none;
+  }
+  #scroll-div2 h1{
+    display: inline-block;
+    font-size: 110px;
+    text-transform:uppercase;
+    margin-right: 30px;
+    letter-spacing: 4px;
+    color: transparent;
+     font-family: "MonumentExtended";
+    -webkit-text-stroke-color: #000; 
+    -webkit-text-stroke-width: 2px; 
+    animation-name: scroll;
+    animation-timing-function: linear;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+  }
+
+  @keyframes scroll {
+      0%{
+          transform: translateX(calc(-100% - 32px));
+      }
+      100%{
+          transform: translateX(0);
+      }
+  }
+
+  .show-image {
+    font-size: 30px;
+    display: inline-block;
+    cursor: none;
+  }
